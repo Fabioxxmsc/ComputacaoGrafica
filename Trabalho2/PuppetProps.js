@@ -1,0 +1,3 @@
+class TPuppetProps extends TProperty {
+  
+}

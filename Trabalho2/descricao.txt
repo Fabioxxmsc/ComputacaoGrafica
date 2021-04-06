@@ -1,0 +1,9 @@
+Este trabalho, tem como objetivo criar um boneco que possua articulações funcionais.  O boneco deve possuir as articulações básicas do corpo: Ombro, cotovelo, "bacia" e joelho.
+
+O trabalho deve conter esferas para representar as articulações. Por exemplo o braço deve possuir duas esferas (o ombro), e outra móvel (cotovelo), além de dois cubos (ou paralelepípedos, ou mesmo cilindros) que serão os 'ossos' do braço.
+Você deve utilizar teclas do teclado para controlar os movimentos ou se preferir faça uma animação que demonstre o movimento como um todo.
+Os movimentos devem ser semelhantes a do corpo humano. Por exemplo, o braço deve abrir cerca de 140°, girar um pouco dobre o cotovelo, e possuir  certa mobilidade sobre o ombro.
+A única peças totalmente fizas devem ser a cabeça (opcionalmente) e o tronco.
+O prazo para entrega é o dia 09/04 19:00. A entrega deve ser feita pelo git. Nesta tarefa apenas coloque o link para acessar o repositório.
+De preferência, em seu reposítório, crie uma pasta ou branch chamada "the_puppet" para adicionar o código do trabalho (isso é opcional, desde que exista uma organização no repositório).
+Exemplo do Puppet:
