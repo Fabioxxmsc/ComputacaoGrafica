@@ -53,12 +53,12 @@ function animation(){
 
 function eventListener(){
   document.addEventListener('keydown', onKeyDown);
-	document.addEventListener('keyup', onKeyUp);
+  document.addEventListener('keyup', onKeyUp);
 
-	document.addEventListener('mousewheel', onMouseWheel);
-	document.addEventListener('mousemove', onMouseMove);
-	document.addEventListener('mousedown', onMouseDown);
-	document.addEventListener('mouseup', onMouseUp);
+  document.addEventListener('mousewheel', onMouseWheel);
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mousedown', onMouseDown);
+  document.addEventListener('mouseup', onMouseUp);
 }
 
 var inicio = function(){  
