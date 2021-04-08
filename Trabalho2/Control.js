@@ -1,14 +1,46 @@
-var onKeyDown = function(event){ }
+var onKeyDown = function(event){ 
+  for(let key in Botoes){
+    if(key == event.keyCode)
+      Botoes[key][status] = true;
+  }
+}
 
-var onKeyUp = function(event){ }
+var onKeyUp = function(event){ 
+  for(let key in Botoes){
+    if(key == event.keyCode)
+      Botoes[key][status] = false;
+  }  
+}
 
-var onMouseWheel = function(event){ }
+var onMouseWheel = function(event){
+  Botoes[mousewheel][status] = true;
+  Botoes[mousewheel][delta]  = event.deltaY;
+}
 
-var onMouseMove = function(event){ }
+var onMouseMove = function(event){
+	let diferencaMovimento = {
+		x: event.offsetX - MousePosAnterior.x,
+		y: event.offsetY - MousePosAnterior.y
+	}
 
-var onMouseDown = function(event){ }
+	if (Botoes[mouseclick][status]){
+    Botoes[angQuater][status] = true;
+    Botoes[angQuater][delta]  = new THREE.Quaternion().setFromEuler(
+                                new THREE.Euler (ParaRadianos(diferencaMovimento.y) * 0.5,
+                                                 ParaRadianos(diferencaMovimento.x) * 0.5, 0, 'XYZ') 
+                                                                   );
+	}
 
-var onMouseUp = function(event){ }
+	MousePosAnterior = {x: event.offsetX, y: event.offsetY};
+}
+
+var onMouseDown = function(event){ 
+  Botoes[mouseclick][status] = true;
+}
+
+var onMouseUp = function(event){
+  Botoes[mouseclick][status] = false;
+ }
 
 function createScene(){
   scene  = new THREE.Scene();
