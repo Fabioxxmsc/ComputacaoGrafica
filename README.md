@@ -1,1 +1,4 @@
 "# ComputacaoGrafica" 
+
+* Trabalho 1 - Formas Geométricas
+* Trabalho 2 - The Puppet
