@@ -3,6 +3,7 @@ var camera; // Espectador(Área de visualização)
 var render; // Responsável por renderizar tudo
 var Elementos = [];
 
+var animacao                    = false;
 var MousePosAnterior            = {x: 0, y: 0}
 var velocidadeOmbroEsquerdoC    = -0.05;
 var velocidadeOmbroEsquerdoL    = -0.05;
@@ -14,8 +15,14 @@ var velocidadeCoxaEsquerdoC     = -0.05;
 var velocidadeCoxaEsquerdoL     = -0.05;
 var velocidadeCoxaDireitoC      = -0.05;
 var velocidadeCoxaDireitoL      = -0.05;
-var velocidadePernaDireitoC     = -0.05;
-var velocidadePernaEsquerdoC    = -0.05;
+var velocidadePernaDireitoC     = -0.03;
+var velocidadePernaEsquerdoC    = -0.03;
+var velocidadePernaDireitoPosX  = -0.05;
+var velocidadePernaDireitoPosY  = -0.05;
+var velocidadePernaDireitoPosZ  = -0.05;
+var velocidadePernaEsquerdoPosX = -0.05;
+var velocidadePernaEsquerdoPosY = -0.05;
+var velocidadePernaEsquerdoPosZ = -0.05;
 
 var red              = new THREE.Color(1, 0, 0);
 var green            = new THREE.Color(0, 1, 0);
@@ -37,7 +44,7 @@ const status     = 1;
 const delta      = 2;
 const angQuater  = 888;
 
-var Botoes = {87 : ["W",          false],
+var Botoes = {87 : ["W",          false], // Inicio Movimentos
               119: ["w",          false],
               65 : ["A",          false],
               97 : ["a",          false],
@@ -60,7 +67,9 @@ var Botoes = {87 : ["W",          false],
               89 : ["Y",          false],
               121: ["y",          false],
               72 : ["H",          false],
-              104: ["h",          false],
+              104: ["h",          false], // Fim Movimentos
+              77 : ["M",          false],
+              109: ["m",          false], // Animação
               999: ["mouseclick", false],
               998: ["mousewheel", false, 0],
               888: ["Angulo",     false, 0],
