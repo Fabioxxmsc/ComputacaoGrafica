@@ -3,9 +3,13 @@ var camera; // Espectador(Área de visualização)
 var render; // Responsável por renderizar tudo
 var Elementos        = [];
 
-var MousePosAnterior        = {x: 0, y: 0}
-var velocidadeOmbroDireitoC = -0.01;
-var velocidadeOmbroDireitoL = -0.01;
+var MousePosAnterior            = {x: 0, y: 0}
+var velocidadeOmbroEsquerdoC    = -0.05;
+var velocidadeOmbroEsquerdoL    = -0.05;
+var velocidadeOmbroDireitoC     = -0.05;
+var velocidadeOmbroDireitoL     = -0.05;
+var velocidadeCotoveloDireitoC  = -0.05;
+var velocidadeCotoveloEsquerdoC = -0.05;
 
 var red              = new THREE.Color(1, 0, 0);
 var green            = new THREE.Color(0, 1, 0);
@@ -35,9 +39,14 @@ var Botoes = {87 : ["W",          false],
               115: ["s",          false],
               68:  ["D",          false],
               115: ["d",          false],
+              81 : ["Q",          false],
+              113: ["q",          false],
+              69 : ["E",          false],
+              101: ["e",          false],
               999: ["mouseclick", false],
               998: ["mousewheel", false, 0],
-              888: ["Angulo",     false, 0]
+              888: ["Angulo",     false, 0],
+              32 : ["space",      false],
             };
 
 function ParaRadianos(angulo){
