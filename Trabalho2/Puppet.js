@@ -6,7 +6,7 @@ class TPuppet extends TGeometry {
   }
 
   Tronco(){
-    return new THREE.Mesh(new THREE.BoxGeometry(4, 7, 2), materials);
+    return new THREE.Mesh(new THREE.BoxGeometry(4, 7, 4), materials);
   }
 
   Cabeca(){
@@ -113,18 +113,26 @@ class TPuppet extends TGeometry {
   }
 
   MountCoxa(){
+    this.pivotCoxaD           = new THREE.Group();
+    this.puppet["pivotCoxaD"] = this.pivotCoxaD;
+    this.tronco.add(this.pivotCoxaD);
+
+    this.pivotCoxaE           = new THREE.Group();
+    this.puppet["pivotCoxaE"] = this.pivotCoxaE;
+    this.tronco.add(this.pivotCoxaE);
+
     this.coxaD           = this.Membro(1.5, 3.5, 1.5);
     this.puppet["coxaD"] = this.coxaD;
-    this.tronco.add(this.coxaD);
+    this.pivotCoxaD.add(this.coxaD);
 
     this.coxaE           = this.Membro(1.5, 3.5, 1.5);
     this.puppet["coxaE"] = this.coxaE;
-    this.tronco.add(this.coxaE);
+    this.pivotCoxaE.add(this.coxaE);    
 
-    this.coxaD.position.y = this.tronco.position.y - 6.1;
-    this.coxaD.position.x = this.tronco.position.y - 1;
-    this.coxaE.position.y = this.tronco.position.y - 6.1;
-    this.coxaE.position.x = this.tronco.position.y + 1;
+    this.pivotCoxaD.position.y = this.tronco.position.y - 4.2;
+    this.pivotCoxaD.position.x = this.tronco.position.y - 1.2;
+    this.pivotCoxaE.position.y = this.tronco.position.y - 4.2;
+    this.pivotCoxaE.position.x = this.tronco.position.y + 1.2;
   }
 
   MountJoelho(){

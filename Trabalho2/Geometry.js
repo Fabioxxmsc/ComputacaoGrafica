@@ -78,16 +78,6 @@ class TGeometry {
     return velocidadePernaEsquerdoC;
   }
 
-  CorrecaoPernaD(elem){ // Arrumar distância da coxa entre o tronco
-    console.log("Pos_x: " + elem.position.x + " Pos_y: " + elem.position.y + " Pos_z: " + elem.position.z);
-    console.log("Rot_x: " + elem.rotation.x + " Rot_y: " + elem.rotation.y + " Rot_z: " + elem.rotation.z);
-  }
-
-  CorrecaoPernaE(elem){ // Arrumar distância da coxa entre o tronco
-    console.log("Pos_x: " + elem.position.x + " Pos_y: " + elem.position.y + " Pos_z: " + elem.position.z);
-    console.log("Rot_x: " + elem.rotation.x + " Rot_y: " + elem.rotation.y + " Rot_z: " + elem.rotation.z);
-  }
-
   Animacao(){
     for(let elem in Elementos){
       if(!animacao){
@@ -96,7 +86,7 @@ class TGeometry {
         Elementos[elem]["pivotOmbroD"].rotation.x      = -2.75
         Elementos[elem]["pivotOmbroE"].rotation.x      = 1.15
         Elementos[elem]["pivotantebracoE"].rotation.x  = -1.6;
-        Elementos[elem]["coxaE"].rotation.x            = -2;
+        Elementos[elem]["pivotCoxaE"].rotation.x       = -2;
         Elementos[elem]["pivotPernaE"].rotation.x      = 1.6;
         animacao = true;
       }
@@ -151,14 +141,12 @@ class TGeometry {
 
             case "R":
             case "r":
-              Elementos[elem]["coxaD"].rotation.x += this.FrentePernaD(Elementos[elem]["coxaD"], true);
-              this.CorrecaoPernaD(Elementos[elem]["coxaD"]);
+              Elementos[elem]["pivotCoxaD"].rotation.x += this.FrentePernaD(Elementos[elem]["pivotCoxaD"], true);
               break;
 
             case "F":
             case "f":
-              Elementos[elem]["coxaE"].rotation.x += this.FrentePernaE(Elementos[elem]["coxaE"], true);
-              this.CorrecaoPernaE(Elementos[elem]["coxaE"]);
+              Elementos[elem]["pivotCoxaE"].rotation.x += this.FrentePernaE(Elementos[elem]["pivotCoxaE"], true);
               break;
 
             case "T":
@@ -173,14 +161,12 @@ class TGeometry {
 
             case "Y":
             case "y":
-              Elementos[elem]["coxaD"].rotation.z += this.LadoPernaD(Elementos[elem]["coxaD"]);
-              this.CorrecaoPernaD(Elementos[elem]["coxaD"]);
+              Elementos[elem]["pivotCoxaD"].rotation.z += this.LadoPernaD(Elementos[elem]["pivotCoxaD"]);
               break;
 
             case "H":
             case "h":
-              Elementos[elem]["coxaE"].rotation.z += this.LadoPernaE(Elementos[elem]["coxaE"]);
-              this.CorrecaoPernaE(Elementos[elem]["coxaE"]);
+              Elementos[elem]["pivotCoxaE"].rotation.z += this.LadoPernaE(Elementos[elem]["pivotCoxaE"]);
               break;
 
             case "M":
