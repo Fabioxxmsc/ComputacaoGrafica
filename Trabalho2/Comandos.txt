@@ -1,0 +1,6 @@
+Teclas de Comando
+
+Membros superiores : Q, W, E, A, S, D
+Membros inferirores: R, F, T, G, Y, H
+Animação           : M
+Rotação            : Espaço
