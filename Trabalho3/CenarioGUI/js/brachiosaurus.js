@@ -8,20 +8,20 @@ function createBrachiosaurus() {
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe62be");
+          child.material.color.setHex("0x95A8A8");
         }
       }
       );
 
-   /*    obj.scale.y = 0.02;
-      obj.scale.z = 0.02;
-      obj.scale.x = 0.02;
+      obj.scale.y = 6;
+      obj.scale.z = 6;
+      obj.scale.x = 6;
 
-      obj.position.y = 0;
-      obj.position.x = 15;
-      obj.position.z = 30;
+      obj.position.x = 25;
+      obj.position.y = 6;
+      obj.position.z = -10;
 
-      obj.rotation.y += 15; */
+      obj.rotation.y += 0.9;
 
       scene.add(obj);
       console.log("Carregou Braquiossauro");

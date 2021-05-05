@@ -13,15 +13,13 @@ function createLizard() {
       }
       );
 
-      obj.scale.y = 0.02;
-      obj.scale.z = 0.02;
-      obj.scale.x = 0.02;
+      obj.scale.y = 0.001;
+      obj.scale.z = 0.001;
+      obj.scale.x = 0.001;
 
       obj.position.y = 0;
-      obj.position.x = 15;
-      obj.position.z = 30;
-
-      obj.rotation.y += 15;
+      obj.position.x = 5;
+      obj.position.z = 45;
 
       scene.add(obj);
       console.log("Carregou Lagarto");

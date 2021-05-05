@@ -8,20 +8,20 @@ function createRat() {
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe62be");
+          child.material.color.setHex("0x#2F322F");
         }
       }
       );
 
-      obj.scale.y = 0.02;
-      obj.scale.z = 0.02;
-      obj.scale.x = 0.02;
+      obj.scale.y = 0.01;
+      obj.scale.z = 0.01;
+      obj.scale.x = 0.01;
 
       obj.position.y = 0;
-      obj.position.x = 15;
-      obj.position.z = 50;
+      obj.position.x = -35;
+      obj.position.z = 20;
 
-      obj.rotation.y += 15;
+      obj.rotation.y += 11;
 
       scene.add(obj);
       console.log("Carregou Rato");

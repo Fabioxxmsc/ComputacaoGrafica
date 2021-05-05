@@ -9,22 +9,23 @@ function createTriceratops() {
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe6262");
+          child.material.color.setHex("0x155020");
         }
       }
       );
 
-      obj.scale.y = 2;
-      obj.scale.z = 2;
-      obj.scale.x = 2;
+      obj.scale.y = 3;
+      obj.scale.z = 3;
+      obj.scale.x = 3;
 
+      obj.position.x = -15;
       obj.position.y = -6;
       obj.position.z = 2;
 
-      obj.rotation.y += 0.9;
+      obj.rotation.y += -0.8;
 
       scene.add(obj);
-      console.log("Carregou!");
+      console.log("Carregou Triceratopis!");
 
     },//Oque acontece quando terminar!
     function (andamento) {

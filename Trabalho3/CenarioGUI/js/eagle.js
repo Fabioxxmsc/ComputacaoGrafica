@@ -8,20 +8,20 @@ function createEagle(){
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe62be");
+          child.material.color.setHex("0x97F1F0");
         }
       }
       );
 
-      //obj.scale.y = 0.02;
-      //obj.scale.z = 0.02;
-      //obj.scale.x = 0.02;
+      obj.scale.y = 1.3;
+      obj.scale.z = 1.3;
+      obj.scale.x = 1.3;
 
-      obj.position.y = 3;
-      obj.position.x = 8;
-      obj.position.z = 50;
+      obj.position.y = 1;
+      obj.position.x = -30;
+      obj.position.z = 20;
 
-      obj.rotation.y += 1;
+      obj.rotation.y += 5;
 
       scene.add(obj);
       console.log("Carregou Aguia");

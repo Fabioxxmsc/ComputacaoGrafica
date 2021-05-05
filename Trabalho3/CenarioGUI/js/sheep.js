@@ -8,20 +8,20 @@ function createSheep() {
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe62be");
+          child.material.color.setHex("0x444644");
         }
       }
       );
 
-      obj.scale.y = 0.02;
-      obj.scale.z = 0.02;
-      obj.scale.x = 0.02;
+      obj.scale.y = 0.01;
+      obj.scale.z = 0.01;
+      obj.scale.x = 0.01;
 
       obj.position.y = -5;
-      obj.position.x = -20;
-      obj.position.z = 0;
+      obj.position.x = -15;
+      obj.position.z = 30;
 
-      obj.rotation.y += 0.9;
+      obj.rotation.y += 1.7;
 
       scene.add(obj);
       console.log("Carregou Ovelha");
