@@ -26,6 +26,18 @@ var velocidadePernaEsquerdoPosX = -0.05;
 var velocidadePernaEsquerdoPosY = -0.05;
 var velocidadePernaEsquerdoPosZ = -0.05;
 
+var parametrosGUI = {
+    scalarPuppet: 1,
+    positionX: 0,
+    positionY: -6,
+    positionZ: 0,
+    rotationY: 0,
+    skyColor: "#000000",
+    groundColor: "#006400",
+    animais: "",
+    modelGUI: ""
+  };
+
 var red              = new THREE.Color(1, 0, 0);
 var green            = new THREE.Color(0, 1, 0);
 var blue             = new THREE.Color(0, 0, 1);

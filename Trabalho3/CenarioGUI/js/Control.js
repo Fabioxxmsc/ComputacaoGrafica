@@ -27,7 +27,7 @@ var onMouseMove = function (event) {
   }
 
   if (Botoes[mouseclick][status]) {
-    if(comboChange.getValue() == "Mapa")
+    if (comboChange.getValue() == "Mapa")
       camera.rotation.y += ParaRadianos(diferencaMovimento.x) * 0.1;
   }
 
@@ -79,29 +79,35 @@ function createIluminacao() {
 function createGUI() {
   const gui = new dat.GUI();
 
-  parametrosGUI = {
-    scalarPuppet: 1,
-    positionX: 0,
-    positionY: -6,
-    positionZ: 0,
-    rotationY: 0,
-    skyColor: "#000000",
-    groundColor: "#006400",
-    animais: "",
-    modelGUI: ""
-  };
-
-  let opcoes = ['Mapa', 'Ovelha', 'Triceratopis'];
-  comboChange = gui.add(parametrosGUI, 'animais').options(opcoes).name("Objetos");
+  let opcoes = ['Mapa', 'Ovelha', 'Triceratopis', 'Rato', 'Aguia', 'Lagarto', 'Braquiossauro'];
+  comboChange = gui.add(parametrosGUI, 'animais').options(opcoes).name("Objetos").setValue("Mapa");
 
   comboChange.onChange(function (parametro) {
     if (parametro == 'Ovelha') {
       camera.lookAt(Elementos["ove"].position);
       parametrosGUI.modelGui = "ove";
+
     } else if (parametro == 'Triceratopis') {
       camera.lookAt(Elementos["tri"].position);
       parametrosGUI.modelGui = "tri";
+
+    } else if (parametro == 'Rato') {
+      camera.lookAt(Elementos["rat"].position);
+      parametrosGUI.modelGui = "rat";
+
+    } else if (parametro == 'Aguia') {
+      camera.lookAt(Elementos["aga"].position);
+      parametrosGUI.modelGui = "aga";
+
+    } else if (parametro == 'Lagarto') {
+      camera.lookAt(Elementos["liz"].position);
+      parametrosGUI.modelGui = "liz";
+
+    } else if (parametro == 'Braquiossauro') {
+      camera.lookAt(Elementos["brq"].position);
+      parametrosGUI.modelGui = "brq";
     }
+
   }
   );
 
@@ -129,7 +135,9 @@ function createGUI() {
 
   let rotationY = folderRotation.add(parametrosGUI, 'rotationY').min(-1).max(1).step(0.1).name("Rotation Y");
   rotationY.onChange(function (parametro) {
-    Elementos[parametrosGUI.modelGUI].rotation.y += parametro;
+    if (parametrosGUI.modelGUI != "")
+      Elementos[parametrosGUI.modelGUI].rotation.y += parametro;
+    console.log("Combo: " + comboChange.getValue() + " parametro: " + parametro);
   }
   );
 
@@ -150,80 +158,12 @@ function createGUI() {
 }
 
 function objLoading() {
-  loader = new THREE.OBJLoader();
-
-  loader.load(
-    'assets/triceratops.obj',//arquivo que vamos buscar
-    function (obj) {
-      //atribui a cena, colore, reposiciona, rotaciona
-      Elementos['tri'] = obj;
-
-      obj.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe6262");
-        }
-      }
-      );
-
-      obj.scale.y = 2;
-      obj.scale.z = 2;
-      obj.scale.x = 2;
-
-      obj.position.y = -6;
-      obj.position.z = 2;
-
-      obj.rotation.y += 0.9;
-
-      scene.add(obj);
-      console.log("Carregou!");
-
-    },//Oque acontece quando terminar!
-    function (andamento) {
-      console.log("Carregou: " + (andamento.loaded / andamento.total) * 100 + " %");
-    },//O que acontece enquanto esta carregando
-    function (error) {
-      console.log(" Deu merda!: " + error);
-    }//o que acontece se der merda.
-  );
-
-  //carregando Ovelha
-  let loaderFBX = new THREE.FBXLoader();
-  loaderFBX.load(
-    'assets/Sheep.fbx',//arquivo que vamos buscar
-    function (obj) {
-      //atribui a cena, colore, reposiciona, rotaciona
-      Elementos['ove'] = obj;
-
-      obj.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0xbe62be");
-        }
-      }
-      );
-
-      obj.scale.y = 0.02;
-      obj.scale.z = 0.02;
-      obj.scale.x = 0.02;
-
-      obj.position.y = -5;
-      obj.position.x = -20;
-      obj.position.z = 0;
-
-      obj.rotation.y += 0.9;
-
-      scene.add(obj);
-      console.log("Carregou Ovelha");
-
-    },//Oque acontece quando terminar!
-    function (andamento) {
-      console.log("Carregou: " + (andamento.loaded / andamento.total) * 100 + " %");
-    },//O que acontece enquanto esta carregando
-    function (error) {
-      console.log(" Deu merda!: " + error);
-    }//o que acontece se der merda.
-  );
-
-
+  createEagle();
+  createLizard();
+  createRat();
+  createBrachiosaurus();
+  createSheep();
+  createTriceratops();
 };
 
 function animation() {
