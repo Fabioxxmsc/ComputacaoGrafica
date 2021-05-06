@@ -1,7 +1,7 @@
 function createRat() {  
   let loaderFBX = new THREE.FBXLoader();
   loaderFBX.load(
-    'assets/rat/rat.fbx',//arquivo que vamos buscar
+    '../../assets/rat/rat.fbx',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['rat'] = obj;

@@ -1,7 +1,7 @@
 function createLizard() {
   let loaderFBX = new THREE.FBXLoader();
   loaderFBX.load(
-    'assets/lizard/Lizard.fbx',//arquivo que vamos buscar
+    '../../assets/lizard/Lizard.fbx',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['liz'] = obj;

@@ -1,7 +1,7 @@
 function createBrachiosaurus() {
   let loaderFBX = new THREE.FBXLoader();
   loaderFBX.load(
-    'assets/brachiosaurus/low.FBX',//arquivo que vamos buscar
+    '../../assets/brachiosaurus/low.FBX',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['brq'] = obj;

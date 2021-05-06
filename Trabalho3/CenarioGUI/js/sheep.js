@@ -1,7 +1,7 @@
 function createSheep() {
   let loaderFBX = new THREE.FBXLoader();
   loaderFBX.load(
-    'assets/sheep/Sheep.fbx',//arquivo que vamos buscar
+    '../../assets/sheep/Sheep.fbx',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['ove'] = obj;

@@ -1,7 +1,7 @@
 function createEagle(){
   let loaderFBX = new THREE.FBXLoader();
   loaderFBX.load(
-    'assets/eagle/Eagle.FBX',//arquivo que vamos buscar
+    '../../assets/eagle/Eagle.FBX',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['aga'] = obj;

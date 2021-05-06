@@ -2,7 +2,7 @@ function createTriceratops() {
 
   loader = new THREE.OBJLoader();
   loader.load(
-    'assets/triceratops/triceratops.obj',//arquivo que vamos buscar
+    '../../assets/triceratops/triceratops.obj',//arquivo que vamos buscar
     function (obj) {
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['tri'] = obj;
