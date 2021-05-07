@@ -81,7 +81,7 @@ function createIluminacao() {
 function createGUI() {
   const gui = new dat.GUI();
 
-  let opcoes = ['Mapa', 'Ovelha', 'Triceratopis', 'Rato', 'Aguia', 'Lagarto', 'Braquiossauro'];
+  let opcoes = ['Mapa', 'Árvore', 'Ovelha', /*'Triceratopis',*/ 'Rato', 'Aguia', 'Lagarto', 'Braquiossauro', 'Cobra', 'Coruja'];
   comboChange = gui.add(parametrosGUI, 'animais').options(opcoes).name("Objetos").setValue("Mapa");
 
   comboChange.onChange(function (parametro) {
@@ -89,9 +89,9 @@ function createGUI() {
       camera.lookAt(Elementos["ove"].position);
       parametrosGUI.modelGui = "ove";
 
-    } else if (parametro == 'Triceratopis') {
-      camera.lookAt(Elementos["tri"].position);
-      parametrosGUI.modelGui = "tri";
+   // } else if (parametro == 'Triceratopis') {
+      //camera.lookAt(Elementos["tri"].position);
+      //parametrosGUI.modelGui = "tri";
 
     } else if (parametro == 'Rato') {
       camera.lookAt(Elementos["rat"].position);
@@ -108,6 +108,19 @@ function createGUI() {
     } else if (parametro == 'Braquiossauro') {
       camera.lookAt(Elementos["brq"].position);
       parametrosGUI.modelGui = "brq";
+
+    } else if (parametro == 'Árvore') {
+      camera.lookAt(Elementos["arv"].position);
+      parametrosGUI.modelGui = "arv";
+
+    } else if (parametro == 'Cobra') {
+      camera.lookAt(Elementos["cbr"].position);
+      parametrosGUI.modelGui = "cbr";
+      
+    } else if (parametro == 'Coruja') {
+      camera.lookAt(Elementos["owl"].position);
+      parametrosGUI.modelGui = "owl";
+      
     }
 
   }
@@ -160,12 +173,15 @@ function createGUI() {
 }
 
 function objLoading() {
+  createArvore();
   createEagle();
   createLizard();
   createRat();
   createBrachiosaurus();
   createSheep();
-  createTriceratops();
+  createKingCobra();
+  createOwl();
+  //createTriceratops(); // Não texturou kkkk
 };
 
 function animation() {

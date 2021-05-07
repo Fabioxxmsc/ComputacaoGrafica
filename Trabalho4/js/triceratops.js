@@ -9,7 +9,9 @@ function createTriceratops() {
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0x155020");
+          child.material = new THREE.MeshStandardMaterial({
+            map: new THREE.TextureLoader().load("../assets/texturas/Triceratops_texture.png")}
+          );
         }
       }
       );

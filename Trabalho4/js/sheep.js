@@ -15,11 +15,11 @@ function createSheep() {
       }
       );
 
-      obj.scale.y = 0.01;
-      obj.scale.z = 0.01;
-      obj.scale.x = 0.01;
+      obj.scale.y = 0.03;
+      obj.scale.z = 0.03;
+      obj.scale.x = 0.03;
 
-      obj.position.y = -5;
+      obj.position.y = -7.5;
       obj.position.x = -15;
       obj.position.z = 30;
 
