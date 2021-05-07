@@ -6,9 +6,20 @@ function createEagle(){
       //atribui a cena, colore, reposiciona, rotaciona
       Elementos['aga'] = obj;
 
+      let texLoader = new THREE.TextureLoader().setPath("../assets/eagle/");
+
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0x97F1F0");
+          let material = new THREE.MeshStandardMaterial();
+          let materialBase = texLoader.load("default_Base_Color.png");
+          material.encoding = THREE.sRGBEncoding;
+          material.map = materialBase;
+
+          material.normalMap = texLoader.load("1_normals.jpg");
+          material.roughnessMap = texLoader.load("1_occlusion.jpg");
+          material.roughnessMap.wrapS = THREE.RepeatWrapping;
+
+          child.material = material;
         }
       }
       );
@@ -17,9 +28,9 @@ function createEagle(){
       obj.scale.z = 1.3;
       obj.scale.x = 1.3;
 
-      obj.position.y = 1;
-      obj.position.x = -30;
-      obj.position.z = 20;
+      obj.position.y = -5.5;
+      obj.position.x = -33;
+      obj.position.z = 19;
 
       obj.rotation.y += 5;
 
@@ -31,7 +42,7 @@ function createEagle(){
       console.log("Carregou: " + (andamento.loaded / andamento.total) * 100 + " %");
     },//O que acontece enquanto esta carregando
     function (error) {
-      console.log(" Deu merda!: " + error);
+      console.log("Deu merda Aguia!: " + error);
     }//o que acontece se der merda.
   );  
 }

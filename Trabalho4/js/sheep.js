@@ -3,12 +3,14 @@ function createSheep() {
   loaderFBX.load(
     '../assets/sheep/Sheep.fbx',//arquivo que vamos buscar
     function (obj) {
-      //atribui a cena, colore, reposiciona, rotaciona
+      //atribui a cena, color, reposiciona, rotaciona
       Elementos['ove'] = obj;
 
       obj.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-          child.material.color.setHex("0x444644");
+          child.material = new THREE.MeshStandardMaterial({
+            map: new THREE.TextureLoader().load("../assets/texturas/UVSheep.png")}
+          );
         }
       }
       );
@@ -31,7 +33,7 @@ function createSheep() {
       console.log("Carregou: " + (andamento.loaded / andamento.total) * 100 + " %");
     },//O que acontece enquanto esta carregando
     function (error) {
-      console.log(" Deu merda!: " + error);
+      console.log("Deu merda na Ovelha!: " + error);
     }//o que acontece se der merda.
   );
 }

@@ -50,7 +50,7 @@ function createScene() {
 }
 
 function createCamera() {
-  camera = new THREE.PerspectiveCamera(Angulo, window.innerWidth / window.innerHeight, 1, 300);
+  camera = new THREE.PerspectiveCamera(Angulo, window.innerWidth / window.innerHeight, 1, 500);
 }
 
 function createRender() {
@@ -60,6 +60,8 @@ function createRender() {
 
 function configBody() {
   document.body.appendChild(render.domElement);
+  controls = new THREE.OrbitControls(camera, render.domElement);
+  controls.zoomSpeed = 0.05;
 }
 
 function configCamera() {
@@ -172,23 +174,35 @@ function animation() {
 }
 
 function createFloor() {
+  let textureLoad = new THREE.TextureLoader();
+	let groundTexture = textureLoad.load("../assets/texturas/terrain/grasslight-big.jpg"); //busca a imagem
+
+	groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping; //quero que ela se repita
+	groundTexture.encoding = THREE.sRGBEncoding; //padrão cores, sempre que existir será informado
+	groundTexture.repeat.set(25,25); //número de vezes que ela vai se repetir dentro do nosso chão
+	
+	let materialGround = new THREE.MeshStandardMaterial({map: groundTexture});
+	materialGround.normalMap = textureLoad.load("../assets/texturas/terrain/grasslight-big-nm.jpg"); //busca a normal, que da noção básica de profundidade
+
   ground = new THREE.Mesh(
     new THREE.PlaneBufferGeometry(1000, 1000),
-    new THREE.MeshBasicMaterial({ color: 0x006400 })
+		materialGround
   );
+  
   ground.rotation.x = - Math.PI / 2;
   ground.position.y -= 7.5;
   scene.add(ground);
+	scene.fog = new THREE.Fog(0xcce0ff, 150, 450);
 }
 
 function eventListener() {
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
 
-  document.addEventListener('mousewheel', onMouseWheel);
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mousedown', onMouseDown);
-  document.addEventListener('mouseup', onMouseUp);
+  //document.addEventListener('mousewheel', onMouseWheel); /* Não precisa mais */
+  //document.addEventListener('mousemove', onMouseMove);
+  //document.addEventListener('mousedown', onMouseDown);
+  //document.addEventListener('mouseup', onMouseUp);
 }
 
 var inicio = function () {
