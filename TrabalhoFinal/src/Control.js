@@ -81,14 +81,24 @@ function createIluminacao() {
 function createGUI() {
   const gui = new dat.GUI();
 
-  let opcoes = ['Mapa', 'Strv103'];
+  let opcoes = ['Mapa', 'Strv103', 'Mago', 'Lagarto', 'Gerador'];
   comboChange = gui.add(parametrosGUI, 'animais').options(opcoes).name("Objetos").setValue("Mapa");
 
   comboChange.onChange(function (parametro) {
-    if (parametro == 'Strv103') {
+    /*if (parametro == 'Strv103') {
       camera.lookAt(Elementos["strv"].position);
       parametrosGUI.modelGui = "strv";
-    } 
+    } else if (parametro == 'Mago') {
+      camera.lookAt(Elementos["wzd"].position);
+      parametrosGUI.modelGui = "wzd";
+    } else*/ if (parametro == 'Lagarto') {
+      camera.lookAt(Elementos["liz"].position);
+      parametrosGUI.modelGui = "liz";
+
+    } else if (parametro == 'Gerador') {
+      camera.lookAt(Elementos["win"].position);
+      parametrosGUI.modelGui = "win";
+    }
 
   }
   );
@@ -135,15 +145,27 @@ function createGUI() {
   }
   );
 
+  animationFolder = gui.addFolder('Animations');
+
   gui.open();
 }
 
 function objLoading() {
-  createSTRV103();
+  //createSTRV103();
+  //createWizard();
+  createLizard();
+  //createWindTurbine();
 };
 
 function animation() {
   requestAnimationFrame(animation); // Adiciona o método na fila de renderização
+
+  let delta = clock.getDelta();
+
+  if (loadFinisehd1 && loadFinisehd2) {
+    mixer.update(delta);
+  }
+
   render.render(scene, camera);
 }
 

@@ -27,6 +27,34 @@ var velocidadePernaEsquerdoPosX = -0.05;
 var velocidadePernaEsquerdoPosY = -0.05;
 var velocidadePernaEsquerdoPosZ = -0.05;
 
+// Variaveis de animação
+var mixer;
+var modelReady       = false;
+var animationActions = Array();
+var activeAction;
+var lastAction;
+var loadFinisehd1 = false;
+var loadFinisehd2 = true;
+
+var clock = new THREE.Clock();
+
+var animationFolder;
+
+// Troca ação
+const setAction = function(toAction){
+  if (toAction != activeAction) {
+    console.log("Entro");
+    lastAction = activeAction;
+    activeAction = toAction;
+    if(lastAction != undefined)
+      lastAction.stop();
+    activeAction.reset();
+    activeAction.play();
+  }else{
+    console.log("Não Entro");
+  }
+}
+
 var parametrosGUI = {
     scalarPuppet: 1,
     positionX: 0,
@@ -36,7 +64,25 @@ var parametrosGUI = {
     skyColor: "#000000",
     groundColor: "#006400",
     animais: "",
-    modelGUI: ""
+    modelGUI: "",
+    liz1: function(){
+      setAction(animationActions[0]);
+    },
+    liz2: function(){
+      setAction(animationActions[1]);
+    },
+    liz3: function(){
+      setAction(animationActions[2]);
+    },
+    liz4: function(){
+      setAction(animationActions[3]);
+    },
+    para: function(){
+      setAction(animationActions[1]);
+    },
+    gira: function(){
+      setAction(animationActions[2]);
+    }    
   };
 
 var red              = new THREE.Color(1, 0, 0);
